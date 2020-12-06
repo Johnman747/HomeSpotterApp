@@ -1,7 +1,6 @@
 import { React, Component } from 'react';
 import axios from 'axios';
-import { Button, AutoComplete, Switch, Card } from 'antd';
-import moment from 'moment';
+import { Button, AutoComplete, Switch } from 'antd';
 import WeatherCard from './WeatherCard';
 import './App.css';
 
@@ -10,7 +9,8 @@ class App extends Component {
     location: '',
     locationSearch: [],
     currentWeather: '',
-    degreeState: true
+    degreeState: true,
+    active: 'current'
   }
 
   //call to weather api for city names that api covers
@@ -35,12 +35,16 @@ class App extends Component {
 
   //call to API tp get the forecast and current weather reports for searched location
   getWeather = () => {
-    axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${this.state.location}&days=3`).then(response => {
-      // console.log(response.data);
+    axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${this.state.location}&days=10`).then(response => {
+      console.log(response.data);
       this.setState({
         currentWeather: response.data
       })
     })
+  }
+
+  setActive = (input) => {
+    this.setState({ active: input });
   }
 
   render() {
@@ -49,41 +53,33 @@ class App extends Component {
       <div className="App">
         {/* search box and degree switch */}
         <div className="searchField">
-          <AutoComplete
-            style={{ width: 200 }}
-            onChange={(e) => this.getLocation(e)}
-            options={this.state.locationSearch}
-            onSelect={(e) => this.setLocation(e)}
-          ></AutoComplete>
-          <Button
-            type="primary"
-            onClick={() => this.getWeather()}
-          >Search</Button>
-          <Switch
-            checked={this.state.degreeState}
-            onClick={() => this.setState({ degreeState: !this.state.degreeState })}
-            checkedChildren={`F`}
-            unCheckedChildren={`C`}
-          />
+          <AutoComplete style={{ width: 200, margin: 5 }} onChange={(e) => this.getLocation(e)} placeholder="Enter city here" options={this.state.locationSearch} onSelect={(e) => this.setLocation(e)}></AutoComplete>
+          <Button type="primary" onClick={() => this.getWeather()}>Search</Button>
+          <Switch style={{ margin: 10 }} checked={this.state.degreeState} onClick={() => this.setState({ degreeState: !this.state.degreeState })} checkedChildren={`F`} unCheckedChildren={`C`} />
         </div>
-        {this.state.currentWeather !== '' &&
-          <div>
-            {/* display of current weather */}
+        <div className="weatherDisplay">
+          {this.state.currentWeather !== '' &&
             <div>
-              <h1>{weather.location.name}, {weather.location.region}</h1>
-              <WeatherCard day={weather.current} weatherType='current' degreeState={this.state.degreeState} />
+              {/* display of current weather */}
+              <div>
+                <h1>{weather.location.name}, {weather.location.region}</h1>
+                <div onClick={() => this.setActive('current')}>
+                  <WeatherCard day={weather.current} active={this.state.active === 'current'} weatherType='current' degreeState={this.state.degreeState} />
+                </div>
+              </div>
+              {/* display of 3 day forecast */}
+              <div>
+                {weather.forecast.forecastday.slice(1).map((day, i) => {
+                  return (
+                    <div key={i} onClick={() => this.setActive(i)}>
+                      <WeatherCard active={this.state.active === i} index={i} day={day} weatherType='forecast' degreeState={this.state.degreeState} />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
-            {/* display of 3 day forecast */}
-            <div>
-              <h1>3-Day Forecast</h1>
-              {weather.forecast.forecastday.map(day => {
-                return (
-                  <WeatherCard day={day} weatherType='forecast' degreeState={this.state.degreeState}/>
-                )
-              })}
-            </div>
-          </div>
-        }
+          }
+        </div>
       </div>
     )
   }
