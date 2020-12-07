@@ -61,7 +61,7 @@ class App extends Component {
             placeholder="Enter city here"
             options={this.state.locationSearch}
             onSelect={(e) => this.setLocation(e)}
-            value={this.state.location}
+            // value={this.state.location}
           ></AutoComplete>
           <Button
             type="primary"
