@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/HomeSpotterApp/static/css/main.04b54681.chunk.css",
+    "main.js": "/HomeSpotterApp/static/js/main.9a768087.chunk.js",
+    "main.js.map": "/HomeSpotterApp/static/js/main.9a768087.chunk.js.map",
+    "runtime-main.js": "/HomeSpotterApp/static/js/runtime-main.83aca2b1.js",
+    "runtime-main.js.map": "/HomeSpotterApp/static/js/runtime-main.83aca2b1.js.map",
+    "static/css/2.6f338a1f.chunk.css": "/HomeSpotterApp/static/css/2.6f338a1f.chunk.css",
+    "static/js/2.c4f2b840.chunk.js": "/HomeSpotterApp/static/js/2.c4f2b840.chunk.js",
+    "static/js/2.c4f2b840.chunk.js.map": "/HomeSpotterApp/static/js/2.c4f2b840.chunk.js.map",
+    "static/js/3.ba523a28.chunk.js": "/HomeSpotterApp/static/js/3.ba523a28.chunk.js",
+    "static/js/3.ba523a28.chunk.js.map": "/HomeSpotterApp/static/js/3.ba523a28.chunk.js.map",
+    "index.html": "/HomeSpotterApp/index.html",
+    "static/css/2.6f338a1f.chunk.css.map": "/HomeSpotterApp/static/css/2.6f338a1f.chunk.css.map",
+    "static/css/main.04b54681.chunk.css.map": "/HomeSpotterApp/static/css/main.04b54681.chunk.css.map",
+    "static/js/2.c4f2b840.chunk.js.LICENSE.txt": "/HomeSpotterApp/static/js/2.c4f2b840.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83aca2b1.js",
+    "static/css/2.6f338a1f.chunk.css",
+    "static/js/2.c4f2b840.chunk.js",
+    "static/css/main.04b54681.chunk.css",
+    "static/js/main.9a768087.chunk.js"
+  ]
+}
