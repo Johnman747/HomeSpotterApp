@@ -4,7 +4,7 @@ This project is for the Home Spotter Code Test
 
 ## Live App
 
-
+(https://johnman747.github.io/HomeSpotterApp/)
 
 ## Built With
 
