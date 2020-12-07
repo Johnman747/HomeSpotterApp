@@ -35,7 +35,8 @@ These instructions will get you a copy of the project up and running on your loc
 Link to software that is required before you attempt to start the app (e.g. node, mongo).
 
 - Create an account with the weather api (https://www.weatherapi.com/)
-- Create a .env file with two values in it : REACT_APP_WEATHER_API_KEY=(copy & paste your weather api key here)
+- Create a .env file with this value in it : 
+        REACT_APP_WEATHER_API_KEY=(copy & paste your weather api key here)
 - Make sure the .env file is in the root of your project
 
 ### Installing
@@ -50,7 +51,7 @@ Run these commands in the cammand line of the project
 - `npm install`
 - `npm start`
 
-go to (localhost:3000)
+go to (localhost:3000) to see the app
 
 ### Completed Features
 
