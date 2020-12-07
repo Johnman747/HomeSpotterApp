@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import App from './App'
+import { render, fireEvent, waitFor, screen } from '@testing-library/react';
+import App from './App';
+import axios from 'axios';
 
 describe('search testing', () => {
     test('Start Up Test', async () => {
@@ -14,14 +15,4 @@ describe('search testing', () => {
         expect(input).toBeInTheDocument();
         expect(degreeSwitch).toBeInTheDocument();
     });
-
-    test('test input', () => {
-        const { getByText, getByTestId } = render(<App />);
-
-        const input = getByTestId('input');
-        
-        fireEvent.change(input, { target: { value: "Minneapolis, Minnesota, United States of America" } })
-        expect(input.value).toBe("Minneapolis, Minnesota, United States of America")
-        // fireEvent.click(button);
-    })
 });

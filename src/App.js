@@ -79,7 +79,7 @@ class App extends Component {
         </div>
         <div className="weatherDisplay">
           {this.state.currentWeather !== '' &&
-            <div>
+            <div data-testid="current-weather-display">
               {/* display of current weather */}
               <div>
                 <h1>{weather.location.name}, {weather.location.region}</h1>
