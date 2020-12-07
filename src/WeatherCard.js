@@ -27,7 +27,7 @@ const WeatherType = props => {
         return (
             !active ?
                 <>
-                    <Card bordered={false} style={{ marginBottom: 5, width: 300, display: 'block', margin: "auto", backgroundColor: "lightPink" }}>
+                    <Card bordered={false} style={{padding:0, marginBottom: 10, width: 300, display: 'block', margin: "auto", backgroundColor: "lightPink" }}>
                         <div className='notActive'>
                             <h2 className="notActiveSub">{props.degreeState ? Math.round(day.temp_f) : Math.round(day.temp_c)} &deg;</h2>
                             <h2 className="notActiveSub">Today</h2>
@@ -37,7 +37,7 @@ const WeatherType = props => {
                 </>
                 :
                 <>
-                    <Card title={<h2>Today</h2>} bordered={false} style={{ marginBottom: 5, width: 300, display: 'block', margin: "auto", backgroundColor: "lightPink" }}>
+                    <Card title={<h2>Today</h2>} bordered={false} style={{ marginBottom: 10, width: 300, display: 'block', margin: "auto", backgroundColor: "lightPink" }}>
                         <h2>{day.condition.text}</h2>
                         <img alt="Weather Icon" src={day.condition.icon}></img>
                         <h1>{props.degreeState ? Math.round(day.temp_f) : Math.round(day.temp_c)} &deg;</h1>
@@ -50,7 +50,7 @@ const WeatherType = props => {
         return (
             !active ?
                 <>
-                    <Card bordered={false} style={{ marginBottom: 10, width: 300, display: "block", flex: "flexbox", margin: "auto", backgroundColor: color }}>
+                    <Card bordered={false} style={{padding:0, marginTop:10, marginBottom: 10, width: 300, display: "block", flex: "flexbox", margin: "auto", backgroundColor: color }}>
                         <div className='notActive'>
                             <h2 className="notActiveSub">{props.degreeState ? Math.round(day.day.avgtemp_f) : Math.round(day.day.avgtemp_c)} &deg;</h2>
                             <h2 className="notActiveSub">{moment(day.date).format("dddd")}</h2>
@@ -60,7 +60,7 @@ const WeatherType = props => {
                 </>
                 :
                 <>
-                    <Card title={<h2>{moment(day.date).format("dddd, MM/DD")}</h2>} bordered={false} style={{ marginBottom: 10, width: 300, display: "block", flex: "flexbox", margin: "auto", backgroundColor: color }}>
+                    <Card title={<h2>{moment(day.date).format("dddd, MM/DD")}</h2>} bordered={false} style={{ marginTop:10, marginBottom: 10, width: 300, display: "block", flex: "flexbox", margin: "auto", backgroundColor: color }}>
                         <h2>{day.day.condition.text}</h2>
                         <img alt="Weather Icon" src={day.day.condition.icon}></img>
                         <h1> HI:{props.degreeState ? Math.round(day.day.maxtemp_f) : Math.round(day.day.maxtemp_c)} &deg;</h1>
@@ -69,7 +69,7 @@ const WeatherType = props => {
                 </>
         )
     }
-    return <></>
+    return <h1>Loading...</h1>
 }
 
 export default WeatherType;

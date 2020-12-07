@@ -23,7 +23,7 @@ class App extends Component {
         newArray.push({ value: option.name });
       });
       // console.log(newArray);
-      this.setState({ locationSearch: newArray });
+      this.setState({location:e, locationSearch: newArray });
     })
   }
 
@@ -53,9 +53,29 @@ class App extends Component {
       <div className="App">
         {/* search box and degree switch */}
         <div className="searchField">
-          <AutoComplete style={{ width: 200, margin: 5 }} onChange={(e) => this.getLocation(e)} placeholder="Enter city here" options={this.state.locationSearch} onSelect={(e) => this.setLocation(e)}></AutoComplete>
-          <Button type="primary" onClick={() => this.getWeather()}>Search</Button>
-          <Switch style={{ margin: 10 }} checked={this.state.degreeState} onClick={() => this.setState({ degreeState: !this.state.degreeState })} checkedChildren={`F`} unCheckedChildren={`C`} />
+          <AutoComplete
+            className="SearchInput"
+            data-testid="input"
+            style={{ width: 200, margin: 5 }}
+            onChange={(e) => this.getLocation(e)}
+            placeholder="Enter city here"
+            options={this.state.locationSearch}
+            onSelect={(e) => this.setLocation(e)}
+            value={this.state.location}
+          ></AutoComplete>
+          <Button
+            type="primary"
+            onClick={() => this.getWeather()}
+          >Search</Button>
+          <Switch
+            data-testid="degree-switch"
+            className="degreeSwitch"
+            style={{ margin: 10 }}
+            checked={this.state.degreeState}
+            onClick={() => this.setState({ degreeState: !this.state.degreeState })}
+            checkedChildren={`F`}
+            unCheckedChildren={`C`}
+          />
         </div>
         <div className="weatherDisplay">
           {this.state.currentWeather !== '' &&
@@ -64,7 +84,12 @@ class App extends Component {
               <div>
                 <h1>{weather.location.name}, {weather.location.region}</h1>
                 <div onClick={() => this.setActive('current')}>
-                  <WeatherCard day={weather.current} active={this.state.active === 'current'} weatherType='current' degreeState={this.state.degreeState} />
+                  <WeatherCard
+                    day={weather.current}
+                    active={this.state.active === 'current'}
+                    weatherType='current'
+                    degreeState={this.state.degreeState}
+                  />
                 </div>
               </div>
               {/* display of 3 day forecast */}
@@ -72,7 +97,13 @@ class App extends Component {
                 {weather.forecast.forecastday.slice(1).map((day, i) => {
                   return (
                     <div key={i} onClick={() => this.setActive(i)}>
-                      <WeatherCard active={this.state.active === i} index={i} day={day} weatherType='forecast' degreeState={this.state.degreeState} />
+                      <WeatherCard
+                        active={this.state.active === i}
+                        index={i}
+                        day={day}
+                        weatherType='forecast'
+                        degreeState={this.state.degreeState}
+                      />
                     </div>
                   )
                 })}
