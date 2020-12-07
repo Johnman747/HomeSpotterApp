@@ -16,7 +16,7 @@ class App extends Component {
   //call to weather api for city names that api covers
   getLocation = (e) => {
     let location = e
-    axios.get(`http://api.weatherapi.com/v1/search.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`).then(response => {
+    axios.get(`https://api.weatherapi.com/v1/search.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${location}`).then(response => {
       // console.log(response.data);
       let newArray = [];
       response.data.forEach(option => {
@@ -35,7 +35,7 @@ class App extends Component {
 
   //call to API tp get the forecast and current weather reports for searched location
   getWeather = () => {
-    axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${this.state.location}&days=10`).then(response => {
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${this.state.location}&days=10`).then(response => {
       console.log(response.data);
       this.setState({
         currentWeather: response.data

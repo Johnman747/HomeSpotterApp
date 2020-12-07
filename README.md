@@ -65,10 +65,6 @@ High level list of items completed.
 - [ ] Using more of the weather API to display more information like humidity and wind speed
 - [ ] Improve UI to more appealing
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Authors
 
 * Johnathan Moes
