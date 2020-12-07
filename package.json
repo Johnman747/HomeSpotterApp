@@ -2,6 +2,7 @@
   "name": "weatherapp",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://johnman747.github.io/HomeSpotterApp/",
   "dependencies": {
     "@babel/core": "^7.12.9",
     "@babel/preset-env": "^7.12.7",
